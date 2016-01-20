@@ -1,28 +1,59 @@
 # TelegramBot Service (unofficial) in Twisted Python3
 
-A [Twisted](https://twistedmatrix.com) service that connects to the [Telegram Bot API](https://core.telegram.org/bots/api) using
-[pyTelegramBotAPI](https://github.com/sourcesimian/pyTelegramBotAPI).
+A [Twisted](https://twistedmatrix.com) service that connects to the
+[Telegram Bot API](https://core.telegram.org/bots/api) using
+[TelegramBotAPI](https://github.com/sourcesimian/pyTelegramBotAPI).
 
 ## Installation
 ```
-pip install https://github.com/sourcesimian/pyTelegramBot/tarball/v0.1#egg=TelegramBot-0.1
+pip3 install txTelegramBot
 ```
 
 ## Usage
-* Configure your Telegram Bot API Token in [```docker/example/config.ini```](/docker/example/config.ini) and also in 
-[```tests/env.py```](tests/env.py) if you wish to run the tests.
-* Write a plugin and put it in [```/plugins```](/plugins), or simply use the current examples.
-* Now run in either the virtualenv or in a [Docker](https://www.docker.com/) container.
-  * Virtualenv
+* Create a ```config.ini``` as follows, and set it up with your
+[Telegram Bot API token](https://core.telegram.org/bots/api#authorizing-your-bot), etc:
     ```
-    $ ./setup_env.sh
-    $ . ./virtualenv/bin/activate
-    $ twistd -n telegrambot -c docker/example/config.ini
+    [telegrambot]
+    # Your Telegram Bot API token
+    token = 123456:ABC-DEF1234ghIkl-zyx57W2v1u123ew11
+
+    [proxy]
+    # address = www.example.com:8080
+
+    [message_plugins]
+    1 = plugins/*.py
+    # 2 = other/plugins/foo.py
+
+    [env]
+    # Set any additional environment variables your plugins may need
+    BOT_NAME = pyTelegramBot
+    # FOO = bar
     ```
 
-  * Docker
+* Write a plugin using the following template and add it in the \[message_plugins\] section above:
     ```
-    $ cd docker/example
-    $ ./build.sh [<proxy-address>:<proxy-port>]
-    $ ./run.sh
+    from twisted.internet import defer
+    from TelegramBotAPI.types import sendMessage
+    from TelegramBot.plugin.message import MessagePlugin
+
+
+    class MyPlugin(MessagePlugin):
+        def startPlugin(self):
+            pass
+
+        def stopPlugin(self):
+            pass
+
+        @defer.inlineCallbacks
+        def on_message(self, msg):
+            m = sendMessage()
+            m.chat_id = msg.chat.id
+            m.text = 'You said: %s' % msg.text
+            rsp = yield self.send_message(m)
+            defer.returnValue(True)
+    ```
+
+* Run the bot:
+    ```
+    $ twistd -n telegrambot -c config.ini
     ```

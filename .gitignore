@@ -12,4 +12,4 @@ log
 twisted/plugins/dropin.cache
 docker/example/build.log
 */__pycache__/*
-
+dist/

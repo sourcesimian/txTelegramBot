@@ -19,7 +19,7 @@ class BotService(service.Service):
 
     @defer.inlineCallbacks
     def startService(self):
-        self._client = self.parent.getServiceNamed('telegram_client')
+        self._client = self.parent.getServiceNamed('telegrambot_client')
 
         log.msg([p for p in PluginLoader(MessagePlugin, self._plugin_filespec)])
         self._msg_plugins = [p(self.send_message) for p in PluginLoader(MessagePlugin, self._plugin_filespec)]

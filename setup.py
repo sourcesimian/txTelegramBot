@@ -36,24 +36,21 @@ else:
     egg_info.write_toplevel_names = _hacked_write_toplevel_names
 
 setup(
-    name="TelegramBot",
-    version="0.1.0",
-    description="TelegramBot",
+    name="txTelegramBot",
+    version="0.1.1",
+    description="TelegramBot Service Framework",
     author="Source Simian",
-    url='https://github.com/sourcesimian/pyTelegramBot',
+    author_email='sourcesimian@users.noreply.github.com',
+    url='https://github.com/sourcesimian/txTelegramBot',
+    download_url="https://github.com/sourcesimian/txTelegramBot/tarball/v0.1.1",
     license='MIT',
-    packages=['TelegramBot','twisted.plugins'],
+    packages=['TelegramBot','TelegramBot.plugin','TelegramBot.service','twisted.plugins'],
     install_requires=['python-dateutil',
                       'Twisted',
                       'requests',
-                      'TelegramBotAPI==0.2',
-                      'pyplugin==0.1.1',
+                      'TelegramBotAPI==0.2.1',
+                      'pyPlugin==0.1.2',
                       ],
-    dependency_links=[
-        'https://github.com/sourcesimian/pyTelegramBotAPI/tarball/v0.2#egg=TelegramBotAPI-0.2',
-        'https://github.com/sourcesimian/pyPlugin/tarball/v0.1.1#egg=pyplugin-0.1.1',
-    ],
-    download_url="https://github.com/sourcesimian/pyTelegramBot/tarball/master",
 )
 
 # Make Twisted regenerate the dropin.cache, if possible.  This is necessary
