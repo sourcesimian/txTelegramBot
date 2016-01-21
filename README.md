@@ -1,8 +1,10 @@
-# TelegramBot Service (unofficial) in Twisted Python3
+# Telegram Bot Service (unofficial) in Twisted Python 3
 
-A [Twisted](https://twistedmatrix.com) service that connects to the
-[Telegram Bot API](https://core.telegram.org/bots/api) using
-[TelegramBotAPI](https://github.com/sourcesimian/pyTelegramBotAPI).
+A customisable bot for the [Telegram Bot API](https://core.telegram.org/bots/api) written in [Twisted](https://twistedmatrix.com) Python 3
+
+Uses:
+* [TelegramBotAPI](https://github.com/sourcesimian/pyTelegramBotAPI): An implementation of the Telegram Bot API messages and some simple clients.
+* [pyPlugin](https://github.com/sourcesimian/pyPlugin): Simple framework-less plugin loader for Python.
 
 ## Installation
 ```

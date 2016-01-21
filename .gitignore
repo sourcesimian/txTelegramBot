@@ -1,5 +1,4 @@
 tests/env.py
-docker/example/config.ini
 *.pyc
 .idea
 .DS_Store
@@ -10,6 +9,5 @@ htmlcov/*
 *.egg-info
 log
 twisted/plugins/dropin.cache
-docker/example/build.log
 */__pycache__/*
 dist/

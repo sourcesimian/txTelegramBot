@@ -1,1 +1,0 @@
-../../../../plugins/ping.py
