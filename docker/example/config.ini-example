@@ -1,0 +1,15 @@
+[telegrambot]
+# Your Telegram Bot API token
+token = 123456:ABC-DEF1234ghIkl-zyx57W2v1u123ew11
+
+[proxy]
+# address = www.example.com:8080
+
+[message_plugins]
+1 = plugins/*.py
+# 2 = other/plugins/foo.py
+
+[env]
+# Set any additional environment variables your plugins may need
+BOT_NAME = txTelegramBot
+# FOO = bar

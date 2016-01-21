@@ -26,7 +26,7 @@ pip3 install txTelegramBot
 
     [env]
     # Set any additional environment variables your plugins may need
-    BOT_NAME = pyTelegramBot
+    BOT_NAME = txTelegramBot
     # FOO = bar
     ```
 

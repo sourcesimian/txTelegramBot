@@ -24,6 +24,3 @@ if ! declare -f deactivate >/dev/null; then
 fi
 
 python setup.py develop
-
-git update-index --assume-unchanged docker/example/config.ini
-git update-index --assume-unchanged tests/env.py
