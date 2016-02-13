@@ -32,6 +32,6 @@ class Ping(MessagePlugin):
             return
 
         log.msg("REPLY: %s" % m)
-        rsp = yield self.send_message(m)
+        rsp = yield self.send_method(m)
         log.msg("RSP: %s" % rsp)
         defer.returnValue(True)

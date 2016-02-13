@@ -51,11 +51,11 @@ pip3 install txTelegramBot
             m = sendMessage()
             m.chat_id = msg.chat.id
             m.text = 'You said: %s' % msg.text
-            rsp = yield self.send_message(m)
+            rsp = yield self.send_method(m)
             defer.returnValue(True)
     ```
 
 * Run the bot:
     ```
-    $ twistd -n telegrambot -c config.ini
+    $ twistd -n telegrambot -c ./config.ini
     ```

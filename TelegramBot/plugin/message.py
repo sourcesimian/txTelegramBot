@@ -2,8 +2,8 @@
 class MessagePlugin(object):
     priority = 100
 
-    def __init__(self, cb_send_message):
-        self.__cb_send_message = cb_send_message
+    def __init__(self, cb_send_method):
+        self.__cb_send_method = cb_send_method
 
     def startPlugin(self):
         pass
@@ -14,5 +14,5 @@ class MessagePlugin(object):
     def on_message(self, msg):
         pass
 
-    def send_message(self, msg):
-        return self.__cb_send_message(msg)
+    def send_method(self, method):
+        return self.__cb_send_method(method)

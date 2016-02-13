@@ -22,7 +22,7 @@ class BotService(service.Service):
         self._client = self.parent.getServiceNamed('telegrambot_client')
 
         log.msg([p for p in PluginLoader(MessagePlugin, self._plugin_filespec)])
-        self._msg_plugins = [p(self.send_message) for p in PluginLoader(MessagePlugin, self._plugin_filespec)]
+        self._msg_plugins = [p(self.send_method) for p in PluginLoader(MessagePlugin, self._plugin_filespec)]
 
         self._msg_plugins.sort(key=lambda p: p.priority)
 
@@ -43,5 +43,5 @@ class BotService(service.Service):
             if handled:
                 break
 
-    def send_message(self, message):
-        return self._client.send_message(message)
+    def send_method(self, method):
+        return self._client.send_method(method)

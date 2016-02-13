@@ -25,7 +25,7 @@ class Timer(MessagePlugin):
         m = sendMessage()
         m.chat_id = self._chat_id
         m.text = "Time now is: %s" % datetime.now()
-        yield self.send_message(m)
+        yield self.send_method(m)
 
     @defer.inlineCallbacks
     def on_message(self, msg):
@@ -36,7 +36,7 @@ class Timer(MessagePlugin):
                 m.chat_id = msg.chat.id
                 self._chat_id = msg.chat.id
                 m.text = 'Timer started'
-                yield self.send_message(m)
+                yield self.send_method(m)
                 defer.returnValue(True)
             if msg.text.lower() == 'timer stop':
                 self._loop.stop()
@@ -44,6 +44,6 @@ class Timer(MessagePlugin):
                 m.chat_id = msg.chat.id
                 self._chat_id = None
                 m.text = 'Timer stopped'
-                yield self.send_message(m)
+                yield self.send_method(m)
                 defer.returnValue(True)
 

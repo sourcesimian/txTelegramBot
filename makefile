@@ -2,8 +2,8 @@ test:
 	trial tests/test_*.py
 
 
-service:
-	twistd -n telegrambot -c docker/example/config.ini
+run:
+	twistd -n telegrambot -c ./config.ini
 
 
 coverage:

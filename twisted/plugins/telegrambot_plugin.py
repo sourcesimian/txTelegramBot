@@ -8,7 +8,7 @@ from twisted.python import usage
 from zope.interface import implementer
 
 from TelegramBot.service.bot import BotService
-from TelegramBotAPI.client.twistedclient import TwistedClient
+from TelegramBot.client.twistedclient import TwistedClient
 
 
 class Options(usage.Options):
