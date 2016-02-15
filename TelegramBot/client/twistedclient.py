@@ -16,15 +16,16 @@ class TwistedClient(service.Service):
     _offset = None
     _poll_backoff = 0
 
-    def __init__(self, token, on_update, proxy=None):
+    def __init__(self, token, on_update, proxy=None, debug=False):
         self._lock = defer.DeferredLock()
         self._token = token
         self._proxy = proxy
+        self._debug = debug
         assert callable(on_update)
         self._on_update = on_update
 
     def startService(self):
-        self._client = RequestsClient(self._token, self._proxy)
+        self._client = RequestsClient(self._token, proxy=self._proxy, debug=self._debug)
         reactor.callLater(0, self._poll_updates)
 
     def stopService(self):

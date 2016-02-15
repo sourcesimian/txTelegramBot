@@ -29,6 +29,9 @@ class Timer(MessagePlugin):
 
     @defer.inlineCallbacks
     def on_message(self, msg):
+        if not hasattr(msg, 'text'):
+            defer.returnValue(False)
+
         if isinstance(msg, Message):
             if msg.text.lower() == 'timer start':
                 self._loop.start(interval=5, now=False)

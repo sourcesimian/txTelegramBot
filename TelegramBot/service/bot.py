@@ -22,7 +22,8 @@ class BotService(service.Service):
         self._client = self.parent.getServiceNamed('telegrambot_client')
 
         log.msg([p for p in PluginLoader(MessagePlugin, self._plugin_filespec)])
-        self._msg_plugins = [p(self.send_method) for p in PluginLoader(MessagePlugin, self._plugin_filespec)]
+        self._msg_plugins = [p(self.send_method) for p in PluginLoader(MessagePlugin,
+                                                                       self._plugin_filespec)]
 
         self._msg_plugins.sort(key=lambda p: p.priority)
 
@@ -36,7 +37,7 @@ class BotService(service.Service):
 
     @defer.inlineCallbacks
     def on_update(self, update):
-        log.msg("UPDATE: "+str(update))
+        log.msg("UPDATE: " + str(update))
 
         for plugin in self._msg_plugins:
             handled = yield defer.maybeDeferred(plugin.on_message, update)

@@ -12,3 +12,4 @@ twisted/plugins/dropin.cache
 */__pycache__/*
 dist/
 config.ini
+TelegramBotAPI

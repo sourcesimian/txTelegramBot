@@ -37,18 +37,18 @@ else:
 
 setup(
     name="txTelegramBot",
-    version="0.1.1",
+    version="0.2",
     description="TelegramBot Service Framework",
     author="Source Simian",
     author_email='sourcesimian@users.noreply.github.com',
     url='https://github.com/sourcesimian/txTelegramBot',
-    download_url="https://github.com/sourcesimian/txTelegramBot/tarball/v0.1.1",
+    download_url="https://github.com/sourcesimian/txTelegramBot/tarball/v0.2",
     license='MIT',
     packages=['TelegramBot','TelegramBot.plugin','TelegramBot.service','twisted.plugins'],
     install_requires=['python-dateutil',
                       'Twisted',
                       'requests',
-                      'TelegramBotAPI==0.2.1',
+                      'TelegramBotAPI==0.3.1',
                       'pyPlugin==0.1.2',
                       ],
 )

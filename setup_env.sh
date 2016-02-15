@@ -23,4 +23,5 @@ if ! declare -f deactivate >/dev/null; then
     exit 1
 fi
 
+pip3 install pep8 pyflakes pylint
 python setup.py develop
