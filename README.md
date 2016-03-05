@@ -1,3 +1,6 @@
+__DEPRECATED:__ _Please note that this project has been replaced by [aioTelegramBot](https://github.com/sourcesimian/aioTelegramBot) based on [Python 3 asyncio](https://docs.python.org/3/library/asyncio.html)._
+
+---
 # Telegram Bot Service (unofficial) in Twisted Python 3
 
 A customisable bot for the [Telegram Bot API](https://core.telegram.org/bots/api) written in [Twisted](https://twistedmatrix.com) Python 3
